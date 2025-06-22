@@ -25,16 +25,16 @@ func NewArpRequest(srcIP net.IP, srcMAC net.HardwareAddr, targetIP net.IP) layer
 	}
 }
 
-// 指定されたインターフェース名と宛先IPアドレスに対してARPリクエストを送信し，レスポンスを受信する関数
+// 指定されたインタフェース名と宛先IPアドレスに対してARPリクエストを送信し，レスポンスを受信する関数
 func Send(ifaceName string, targetIP net.IP) (*layers.ARP, error) {
-	// パケットを送るために使用するインターフェース情報(例:有線LAN, 無線LAN)を取得
+	// パケットを送るために使用するインタフェース情報(例:有線LAN, 無線LAN)を取得
 	// これは送信元が持つ情報だから送信元IPアドレスが登録されている
 	iface, err := net.InterfaceByName(ifaceName)
 	if err != nil {
-		return nil, fmt.Errorf("インターフェースの取得に失敗: %v", err)
+		return nil, fmt.Errorf("インタフェースの取得に失敗: %v", err)
 	}
 
-	// インターフェースに割り当てられているIPアドレス一覧を取得
+	// インタフェースに割り当てられているIPアドレス一覧を取得
 	addrs, err := iface.Addrs()
 	if err != nil {
 		return nil, fmt.Errorf("IPアドレスの取得に失敗: %v", err)
