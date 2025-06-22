@@ -3,9 +3,14 @@ package main
 import "tcpip/tcpip"
 
 func main() {
-	// 宛先IPアドレスのMacアドレスを取得
 	// TODO: 宛先IPアドレスを変更して試すとより良い！
-	if err := tcpip.ArpRequest("en0", "192.168.1.1"); err != nil {
+	dstIP := "192.168.1.1"
+
+	// TODO: `networksetup -listallhardwareports`コマンドで確認
+	interfaceName := "en0"
+
+	// ARPリクエストを送信
+	if err := tcpip.ArpRequest(interfaceName, dstIP); err != nil {
 		panic(err)
 	}
 }
