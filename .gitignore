@@ -1,1 +1,14 @@
 .DS_Store
+
+*/server.key
+*/server.csr
+*/server.crt
+
+*/ca.key
+*/ca.csr
+*/ca.crt
+*/ca.srl
+
+*/client.key
+*/client.csr
+*/client.crt
